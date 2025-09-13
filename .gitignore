@@ -32,6 +32,20 @@
 *.a
 *.lib
 
+
+# PlatformIO
+.pio/
+
+# Arduino
+*.elf
+*.bin
+*.hex
+*.eep
+
+# VS Code
+.vscode/
+
+
 # Executables
 *.exe
 *.out
