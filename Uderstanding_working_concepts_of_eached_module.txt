@@ -1,0 +1,6 @@
+Girase_scope_work
+
+ESP32 with MPU-6050 Accelerometer, Gyroscope and Temperature Sensor (Arduino)
+
+
+
