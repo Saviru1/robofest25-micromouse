@@ -1,4 +1,4 @@
-const int irSensorPin = 34; // Example analog pin on ESP32 for IR sensor input
+const int irSensorPin = 5; // Example analog pin on ESP32 for IR sensor input
 int sensorValue = 0;        // Variable to store sensor reading
 int threshold = 1000;       // Threshold value to detect object (adjust as needed)
 
