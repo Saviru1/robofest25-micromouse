@@ -1,0 +1,213 @@
+////////////////////////////////////////////// testing the movement 
+#include <Arduino.h>
+
+// Motor driver pins
+#define IN1 32
+#define IN2 33
+#define IN3 25
+#define IN4 26
+#define PWMA 14
+#define PWMB 27
+#define STBY 12
+
+// Encoder pins
+#define ENCODER_A_LEFT 34
+#define ENCODER_B_LEFT 35
+#define ENCODER_A_RIGHT 36
+#define ENCODER_B_RIGHT 39
+
+// Constants for encoder counts (adjust according to your motor's specifications)
+#define PULSES_PER_REVOLUTION 1440   // Example: Adjust based on your N20 motor encoder
+#define WHEEL_DIAMETER 0.06          // Example: 60mm diameter wheel
+#define WHEEL_CIRCUMFERENCE (PI * WHEEL_DIAMETER)  // Circumference of the wheel
+
+// PID constants (tune these values based on your bot's behavior)
+float Kp = 0.5;
+float Ki = 0.1;
+float Kd = 0.05;
+
+// Target distance in mm (e.g., 180mm per cell)
+float targetDistance = 180; 
+float targetEncoderCounts = (targetDistance / WHEEL_CIRCUMFERENCE) * PULSES_PER_REVOLUTION; // Convert distance to encoder counts
+
+// Variables for PID control
+float errorLeft = 0, previousErrorLeft = 0, integralLeft = 0, derivativeLeft = 0;
+float errorRight = 0, previousErrorRight = 0, integralRight = 0, derivativeRight = 0;
+float motorSpeedLeft = 0, motorSpeedRight = 0;
+volatile int encoderCountsLeft = 0;
+volatile int encoderCountsRight = 0;
+
+// Movement sequence array
+String movementSequence[] = {"forward", "right", "forward", "left", "backward"};
+int movementIndex = 0;  // Index to keep track of current movement
+
+void IRAM_ATTR encoderLeftISR() {
+  encoderCountsLeft++;
+}
+
+void IRAM_ATTR encoderRightISR() {
+  encoderCountsRight++;
+}
+
+// Motor control functions
+void moveForward() {
+  digitalWrite(IN1, HIGH);
+  digitalWrite(IN2, LOW);
+  digitalWrite(IN3, HIGH);
+  digitalWrite(IN4, LOW);
+}
+
+void moveBackward() {
+  digitalWrite(IN1, LOW);
+  digitalWrite(IN2, HIGH);
+  digitalWrite(IN3, LOW);
+  digitalWrite(IN4, HIGH);
+}
+
+void turnLeft() {
+  digitalWrite(IN1, LOW);
+  digitalWrite(IN2, HIGH);
+  digitalWrite(IN3, HIGH);
+  digitalWrite(IN4, LOW);
+}
+
+void turnRight() {
+  digitalWrite(IN1, HIGH);
+  digitalWrite(IN2, LOW);
+  digitalWrite(IN3, LOW);
+  digitalWrite(IN4, HIGH);
+}
+
+void stopCar() {
+  digitalWrite(IN1, LOW);
+  digitalWrite(IN2, LOW);
+  digitalWrite(IN3, LOW);
+  digitalWrite(IN4, LOW);
+  analogWrite(PWMA, 0);
+  analogWrite(PWMB, 0);
+}
+
+void applyPID() {
+  // Left motor PID control
+  errorLeft = targetEncoderCounts - encoderCountsLeft;
+  integralLeft += errorLeft;
+  derivativeLeft = errorLeft - previousErrorLeft;
+  motorSpeedLeft = Kp * errorLeft + Ki * integralLeft + Kd * derivativeLeft;
+  previousErrorLeft = errorLeft;
+
+  // Right motor PID control
+  errorRight = targetEncoderCounts - encoderCountsRight;
+  integralRight += errorRight;
+  derivativeRight = errorRight - previousErrorRight;
+  motorSpeedRight = Kp * errorRight + Ki * integralRight + Kd * derivativeRight;
+  previousErrorRight = errorRight;
+
+  // Apply motor speed
+  motorSpeedLeft = constrain(motorSpeedLeft, 0, 255);  // Ensure speed is within PWM limits
+  motorSpeedRight = constrain(motorSpeedRight, 0, 255);
+
+  analogWrite(PWMA, motorSpeedLeft);
+  analogWrite(PWMB, motorSpeedRight);
+}
+
+void followMovementSequence() {
+  // Process the current movement based on the sequence
+  String currentMovement = movementSequence[movementIndex];
+  
+  if (currentMovement == "forward") {
+    moveForward();
+    encoderCountsLeft = 0;
+    encoderCountsRight = 0;
+  }
+  else if (currentMovement == "backward") {
+    moveBackward();
+    encoderCountsLeft = 0;
+    encoderCountsRight = 0;
+  }
+  else if (currentMovement == "left") {
+    turnLeft();
+    encoderCountsLeft = 0;
+    encoderCountsRight = 0;
+  }
+  else if (currentMovement == "right") {
+    turnRight();
+    encoderCountsLeft = 0;
+    encoderCountsRight = 0;
+  }
+
+  // Apply PID control to adjust motor speed
+  while (encoderCountsLeft < targetEncoderCounts && encoderCountsRight < targetEncoderCounts) {
+    applyPID();  // Adjust speed based on the PID feedback
+  }
+
+  // Stop the car when the movement is completed
+  stopCar();
+  movementIndex++;
+
+  // Check if the entire sequence is completed
+  if (movementIndex >= sizeof(movementSequence) / sizeof(movementSequence[0])) {
+    // Reset the movement index to reverse the sequence
+    movementIndex = 0;
+    reverseMovementSequence();
+  }
+}
+
+void reverseMovementSequence() {
+  // Reverse the sequence and retrace the steps
+  for (int i = movementIndex - 1; i >= 0; i--) {
+    String reverseMovement = movementSequence[i];
+    if (reverseMovement == "forward") {
+      moveBackward();
+    }
+    else if (reverseMovement == "backward") {
+      moveForward();
+    }
+    else if (reverseMovement == "left") {
+      turnRight();
+    }
+    else if (reverseMovement == "right") {
+      turnLeft();
+    }
+
+    encoderCountsLeft = 0;
+    encoderCountsRight = 0;
+    while (encoderCountsLeft < targetEncoderCounts && encoderCountsRight < targetEncoderCounts) {
+      applyPID();  // Apply PID to adjust the speed
+    }
+
+    stopCar();
+  }
+
+  movementIndex = 0;  // Reset to start position
+}
+
+void setup() {
+  // Initialize motor pins
+  pinMode(IN1, OUTPUT);
+  pinMode(IN2, OUTPUT);
+  pinMode(IN3, OUTPUT);
+  pinMode(IN4, OUTPUT);
+  pinMode(PWMA, OUTPUT);
+  pinMode(PWMB, OUTPUT);
+  pinMode(STBY, OUTPUT);
+
+  // Initialize encoder pins and interrupts
+  pinMode(ENCODER_A_LEFT, INPUT);
+  pinMode(ENCODER_B_LEFT, INPUT);
+  pinMode(ENCODER_A_RIGHT, INPUT);
+  pinMode(ENCODER_B_RIGHT, INPUT);
+
+  attachInterrupt(digitalPinToInterrupt(ENCODER_A_LEFT), encoderLeftISR, RISING);
+  attachInterrupt(digitalPinToInterrupt(ENCODER_A_RIGHT), encoderRightISR, RISING);
+
+  // Start the motors
+  digitalWrite(STBY, LOW);  // Enable motor driver
+
+  // Follow the movement sequence
+  followMovementSequence();
+}
+
+void loop() {
+  // Continuously follow the movement sequence
+  followMovementSequence();
+}
