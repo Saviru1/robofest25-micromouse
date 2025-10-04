@@ -1,27 +1,27 @@
 #include <Arduino.h>
 
 // Motor driver pins
-#define IN1 32
-#define IN2 33
+#define IN1 33
+#define IN2 15
 #define IN3 25
-#define IN4 26
-#define PWMA 14
-#define PWMB 27
+#define IN4 27
+#define PWMA 32
+#define PWMB 26
 #define STBY 12
 
 // Encoder pins
-#define ENCODER_A_LEFT 34
-#define ENCODER_B_LEFT 35
-#define ENCODER_A_RIGHT 36
-#define ENCODER_B_RIGHT 39
+#define ENCODER_A_LEFT 19
+#define ENCODER_B_LEFT 16
+#define ENCODER_A_RIGHT 18
+#define ENCODER_B_RIGHT 17
 
 // TOF Sensors (example pins, you should use your actual sensor pins)
-#define TOF_SENSOR_FRONT 2
+#define TOF_SENSOR_FRONT 13
 #define TOF_SENSOR_LEFT 4
-#define TOF_SENSOR_RIGHT 5
+#define TOF_SENSOR_RIGHT 14
 
 // IR Sensor pin (to detect final destination)
-#define IR_SENSOR_PIN 13
+#define IR_SENSOR_PIN 5
 
 // Constants for encoder counts (adjust according to your motor's specifications)
 #define PULSES_PER_REVOLUTION 1440   // Example: Adjust based on your N20 motor encoder
