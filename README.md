@@ -18,14 +18,14 @@ A fully autonomous micromouse robot capable of exploring, mapping, and solving a
 - [Configuration & Tuning](#configuration--tuning)
 - [Testing](#testing)
 - [Competition Rules](#competition-rules)
-- [Team](#team)
+- [Contributors](#contributors)
 - [License](#license)
 
 ---
 
 ## 🎯 Overview
 
-This micromouse robot is designed to compete in the **SLIIT ROBOFEST 2025 University Category**. The robot autonomously navigates through a 16×16 cell maze (each cell 16cm × 16cm), discovers walls, maps the environment, and calculates the shortest path to the center using the flood-fill algorithm. 
+This micromouse robot is designed to compete in the **SLIIT ROBOFEST 2025 University Category**. The robot autonomously navigates through a 16×16 cell maze (each cell 16cm × 16cm), discovers walls, maps the environment, and calculates the shortest path to the center using the flood-fill algorithm.  
 
 ### Project Goals
 - ✅ Autonomous maze exploration and mapping
@@ -146,8 +146,8 @@ This micromouse robot is designed to compete in the **SLIIT ROBOFEST 2025 Univer
    ```
 
 2. **Install required libraries**
-   - In Arduino IDE:  `Sketch → Include Library → Manage Libraries`
-   - Search and install: 
+   - In Arduino IDE:   `Sketch → Include Library → Manage Libraries`
+   - Search and install:  
      - "Adafruit MPU6050"
      - "Adafruit Unified Sensor"
      - "VL53L0X" by Pololu
@@ -201,7 +201,7 @@ robofest25-micromouse/
 
 The robot uses the **flood-fill algorithm** to find the shortest path:
 
-- **Initialization**: Each cell is assigned a distance value from the center
+- **Initialization**:  Each cell is assigned a distance value from the center
 - **Wall Discovery**: As the robot explores, it updates wall information
 - **Path Selection**: Always moves toward the cell with the lowest flood value
 - **Dynamic Updating**: Recalculates paths when new walls are discovered
@@ -255,7 +255,7 @@ This ensures precise turning and heading maintenance.
 // Motion parameters
 #define BASE_SPEED 150          // PWM (0-255)
 #define TURN_SPEED 120          // PWM for turning
-#define SPEED_CM_PER_SEC 10.0f  // Calibrate this! 
+#define SPEED_CM_PER_SEC 10.0f  // Calibrate this!  
 
 // Wall detection thresholds (cm)
 #define FRONT_WALL_STOP_CM 10
@@ -298,7 +298,7 @@ bool wallRight = (right < 15) || (rightDiag < 10);
 
 ### 1. IR Sensor Test
 
-Use `ir_sensor_checking_code/ir_sensor_checking_code. ino` to verify IR sensors:
+Use `ir_sensor_checking_code/ir_sensor_checking_code.ino` to verify IR sensors:
 
 ```cpp
 // Adjust threshold based on Serial Monitor readings
@@ -310,14 +310,14 @@ int threshold = 1000;
 Add debug code to `loop()`:
 
 ```cpp
-Serial.print("Front:  "); Serial.print(f);
+Serial.print("Front:   "); Serial.print(f);
 Serial.print(" | Left: "); Serial.print(l);
 Serial.print(" | Right: "); Serial.println(r);
 ```
 
 ### 3. Motor Test
 
-Verify motor directions:
+Verify motor directions: 
 - Forward: Both motors should spin forward
 - Turn left: Left motor backward, right motor forward
 - Turn right: Left motor forward, right motor backward
@@ -336,7 +336,7 @@ Verify that 90° physical turn ≈ 90° reading.
 
 ## 🏆 Competition Rules
 
-Based on **SLIIT ROBOFEST 2025 University Category**:
+Based on **SLIIT ROBOFEST 2025 University Category**: 
 
 - **Maze Specifications:**
   - 16×16 grid
@@ -359,14 +359,49 @@ Based on **SLIIT ROBOFEST 2025 University Category**:
 
 ---
 
-## 👥 Team
+## 👥 Contributors
 
-**Team Members:**
-- FERDINANDO K. P. S. S. M. D. S. S. (Copyright holder)
-- Saviru1 (GitHub contributor)
+This project is a collaborative effort by team members from **Sri Lanka Institute of Information Technology (SLIIT)** for ROBOFEST 2025:
 
-**Institution:** Sri Lanka Institute of Information Technology (SLIIT)
+<table>
+  <tr>
+    <td align="center">
+      <a href="https://github.com/Saviru1">
+        <img src="https://github.com/Saviru1.png" width="100px;" alt="Saviru1"/>
+        <br />
+        <sub><b>Saviru1</b></sub>
+      </a>
+      <br />
+      <sub>Project Lead & Main Developer</sub>
+    </td>
+    <td align="center">
+      <a href="https://github.com/Nithurjithan-Nithur8">
+        <img src="https://github.com/Nithurjithan-Nithur8.png" width="100px;" alt="Nithurjithan"/>
+        <br />
+        <sub><b>Nithurjithan</b></sub>
+      </a>
+      <br />
+      <sub>Hardware & Algorithm Developer</sub>
+    </td>
+    <td align="center">
+      <a href="https://github.com/Kehara-Kehara2002">
+        <img src="https://github.com/Kehara-Kehara2002.png" width="100px;" alt="Kehara"/>
+        <br />
+        <sub><b>Kehara</b></sub>
+      </a>
+      <br />
+      <sub>Testing & Integration</sub>
+    </td>
+  </tr>
+</table>
 
+**Copyright Holder:** FERDINANDO K. P. S. S. M. D.S.S. 
+
+### Contributions
+
+- **[@Saviru1](https://github.com/Saviru1)**
+- **[@Nithurjithan-Nithur8](https://github.com/Nithurjithan-Nithur8)**
+- **[@Kehara-Kehara2002](https://github.com/Kehara-Kehara2002)**
 ---
 
 ## 📄 License
@@ -384,10 +419,10 @@ copies of the Software, and to permit persons to whom the Software is
 furnished to do so, subject to the following conditions:
 
 The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software. 
+copies or substantial portions of the Software.  
 ```
 
-See [LICENSE](./LICENSE) for full text. 
+See [LICENSE](./LICENSE) for full text.  
 
 ---
 
@@ -413,7 +448,7 @@ See [LICENSE](./LICENSE) for full text.
 
 ## 📞 Contact
 
-For questions or collaboration: 
+For questions or collaboration:  
 - **GitHub**: [@Saviru1](https://github.com/Saviru1)
 - **Repository**: [robofest25-micromouse](https://github.com/Saviru1/robofest25-micromouse)
 
@@ -425,5 +460,6 @@ For questions or collaboration:
 
 [![License:  MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Platform: ESP32](https://img.shields.io/badge/Platform-ESP32-blue.svg)](https://www.espressif.com/en/products/socs/esp32)
+[![Contributors](https://img.shields.io/badge/Contributors-3-brightgreen. svg)](https://github.com/Saviru1/robofest25-micromouse/graphs/contributors)
 
 </div>
