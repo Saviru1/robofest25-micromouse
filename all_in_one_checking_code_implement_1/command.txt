@@ -1,0 +1,8 @@
+encoders	Test encoder counting (rotate wheels manually to see counts)
+motortest	Test motors with encoder feedback
+test	Test all sensors (ToF, MPU6050, encoders)
+move	Move forward one cell with PID control
+movesimple	Simple forward movement for 2 seconds
+blink	Blink the LED
+flood	Run flood fill algorithm
+run	Run optimized path after reaching goal
