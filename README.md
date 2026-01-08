@@ -361,39 +361,6 @@ Based on **SLIIT ROBOFEST 2025 University Category**:
 
 ## 👥 Contributors
 
-This project is a collaborative effort by team members from **Sri Lanka Institute of Information Technology (SLIIT)** for ROBOFEST 2025:
-
-<table>
-  <tr>
-    <td align="center">
-      <a href="https://github.com/Saviru1">
-        <img src="https://github.com/Saviru1.png" width="100px;" alt="Saviru1"/>
-        <br />
-        <sub><b>Saviru1</b></sub>
-      </a>
-      <br />
-      <sub>Project Lead & Main Developer</sub>
-    </td>
-    <td align="center">
-      <a href="https://github.com/Nithurjithan-Nithur8">
-        <img src="https://github.com/Nithurjithan-Nithur8.png" width="100px;" alt="Nithurjithan"/>
-        <br />
-        <sub><b>Nithurjithan</b></sub>
-      </a>
-      <br />
-      <sub>Hardware & Algorithm Developer</sub>
-    </td>
-    <td align="center">
-      <a href="https://github.com/Kehara-Kehara2002">
-        <img src="https://github.com/Kehara-Kehara2002.png" width="100px;" alt="Kehara"/>
-        <br />
-        <sub><b>Kehara</b></sub>
-      </a>
-      <br />
-      <sub>Testing & Integration</sub>
-    </td>
-  </tr>
-</table>
 
 **Copyright Holder:** FERDINANDO K. P. S. S. M. D.S.S. 
 
