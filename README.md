@@ -367,9 +367,9 @@ Based on **SLIIT ROBOFEST 2025 University Category**:
 
 ### Team Members
 
-- **[@Saviru1](https://github.com/Saviru1)** - Lead Developer & Hardware Integration
-- **[@Nithurjithan-Nithur8](https://github.com/Nithurjithan-Nithur8)** - Algorithm Development
-- **[@Kehara-Kehara2002](https://github.com/Kehara-Kehara2002)** - Testing & Calibration
+- **[@Saviru1](https://github.com/Saviru1)**
+- **[@Nithurjithan-Nithur8](https://github.com/Nithurjithan-Nithur8)**
+- **[@Kehara-Kehara2002](https://github.com/Kehara-Kehara2002)** 
 
 ---
 
