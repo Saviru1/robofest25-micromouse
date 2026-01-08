@@ -2,7 +2,7 @@
 
 > **Autonomous maze-solving robot for SLIIT ROBOFEST 2025 (University Category)**
 
-A fully autonomous micromouse robot capable of exploring, mapping, and solving a 16×16 maze using optimal pathfinding algorithms.  This project combines embedded systems programming, sensor fusion, and advanced navigation algorithms to create a competition-ready solution.
+A fully autonomous micromouse robot capable of exploring, mapping, and solving a 16×16 maze using optimal pathfinding algorithms. This project combines embedded systems programming, sensor fusion, and advanced navigation algorithms.
 
 ---
 
@@ -25,7 +25,7 @@ A fully autonomous micromouse robot capable of exploring, mapping, and solving a
 
 ## 🎯 Overview
 
-This micromouse robot is designed to compete in the **SLIIT ROBOFEST 2025 University Category**. The robot autonomously navigates through a 16×16 cell maze (each cell 16cm × 16cm), discovers walls, maps the environment, and calculates the shortest path to the center using the flood-fill algorithm.  
+This micromouse robot is designed to compete in the **SLIIT ROBOFEST 2025 University Category**. The robot autonomously navigates through a 16×16 cell maze (each cell 16cm × 16cm), discovers walls, and finds the optimal path to the center.
 
 ### Project Goals
 - ✅ Autonomous maze exploration and mapping
@@ -146,8 +146,8 @@ This micromouse robot is designed to compete in the **SLIIT ROBOFEST 2025 Univer
    ```
 
 2. **Install required libraries**
-   - In Arduino IDE:   `Sketch → Include Library → Manage Libraries`
-   - Search and install:  
+   - In Arduino IDE: `Sketch → Include Library → Manage Libraries`
+   - Search and install:
      - "Adafruit MPU6050"
      - "Adafruit Unified Sensor"
      - "VL53L0X" by Pololu
@@ -201,7 +201,7 @@ robofest25-micromouse/
 
 The robot uses the **flood-fill algorithm** to find the shortest path:
 
-- **Initialization**:  Each cell is assigned a distance value from the center
+- **Initialization**: Each cell is assigned a distance value from the center
 - **Wall Discovery**: As the robot explores, it updates wall information
 - **Path Selection**: Always moves toward the cell with the lowest flood value
 - **Dynamic Updating**: Recalculates paths when new walls are discovered
@@ -255,7 +255,7 @@ This ensures precise turning and heading maintenance.
 // Motion parameters
 #define BASE_SPEED 150          // PWM (0-255)
 #define TURN_SPEED 120          // PWM for turning
-#define SPEED_CM_PER_SEC 10.0f  // Calibrate this!  
+#define SPEED_CM_PER_SEC 10.0f  // Calibrate this!
 
 // Wall detection thresholds (cm)
 #define FRONT_WALL_STOP_CM 10
@@ -310,14 +310,14 @@ int threshold = 1000;
 Add debug code to `loop()`:
 
 ```cpp
-Serial.print("Front:   "); Serial.print(f);
+Serial.print("Front: "); Serial.print(f);
 Serial.print(" | Left: "); Serial.print(l);
 Serial.print(" | Right: "); Serial.println(r);
 ```
 
 ### 3. Motor Test
 
-Verify motor directions: 
+Verify motor directions:
 - Forward: Both motors should spin forward
 - Turn left: Left motor backward, right motor forward
 - Turn right: Left motor forward, right motor backward
@@ -336,13 +336,13 @@ Verify that 90° physical turn ≈ 90° reading.
 
 ## 🏆 Competition Rules
 
-Based on **SLIIT ROBOFEST 2025 University Category**: 
+Based on **SLIIT ROBOFEST 2025 University Category**:
 
 - **Maze Specifications:**
   - 16×16 grid
-  - Each cell:  16cm × 16cm
+  - Each cell: 16cm × 16cm
   - Wall height: ~5cm
-  - Start:  Corner (0,0)
+  - Start: Corner (0,0)
   - Goal: Center (4 cells)
 
 - **Robot Constraints:**
@@ -355,25 +355,27 @@ Based on **SLIIT ROBOFEST 2025 University Category**:
   - Shortest path optimization
   - Return-to-start run (optional)
 
-📄 **Full specifications**:  See `Document/ROBOFEST 2025 University Category Technical Specifications.pdf`
+📄 **Full specifications**: See `Document/ROBOFEST 2025 University Category Technical Specifications.pdf`
 
 ---
 
 ## 👥 Contributors
 
+![Team Image](images/team_image_2.jpeg)
 
-**Copyright Holder:** FERDINANDO K. P. S. S. M. D.S.S. 
+**Copyright Holder:** FERDINANDO K. P. S. S. M. D.S.S.
 
-### Contributions
+### Team Members
 
-- **[@Saviru1](https://github.com/Saviru1)**
-- **[@Nithurjithan-Nithur8](https://github.com/Nithurjithan-Nithur8)**
-- **[@Kehara-Kehara2002](https://github.com/Kehara-Kehara2002)**
+- **[@Saviru1](https://github.com/Saviru1)** - Lead Developer & Hardware Integration
+- **[@Nithurjithan-Nithur8](https://github.com/Nithurjithan-Nithur8)** - Algorithm Development
+- **[@Kehara-Kehara2002](https://github.com/Kehara-Kehara2002)** - Testing & Calibration
+
 ---
 
 ## 📄 License
 
-This project is licensed under the **MIT License**. 
+This project is licensed under the **MIT License**.
 
 ```
 Copyright (c) 2025 FERDINANDO K.P.S.S.M.D.S.S.
@@ -386,10 +388,10 @@ copies of the Software, and to permit persons to whom the Software is
 furnished to do so, subject to the following conditions:
 
 The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.  
+copies or substantial portions of the Software.
 ```
 
-See [LICENSE](./LICENSE) for full text.  
+See [LICENSE](./LICENSE) for full text.
 
 ---
 
@@ -415,7 +417,7 @@ See [LICENSE](./LICENSE) for full text.
 
 ## 📞 Contact
 
-For questions or collaboration:  
+For questions or collaboration:
 - **GitHub**: [@Saviru1](https://github.com/Saviru1)
 - **Repository**: [robofest25-micromouse](https://github.com/Saviru1/robofest25-micromouse)
 
@@ -425,8 +427,8 @@ For questions or collaboration:
 
 **Built for SLIIT ROBOFEST 2025** 🏆
 
-[![License:  MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Platform: ESP32](https://img.shields.io/badge/Platform-ESP32-blue.svg)](https://www.espressif.com/en/products/socs/esp32)
-[![Contributors](https://img.shields.io/badge/Contributors-3-brightgreen. svg)](https://github.com/Saviru1/robofest25-micromouse/graphs/contributors)
+[![Contributors](https://img.shields.io/badge/Contributors-3-brightgreen.svg)](https://github.com/Saviru1/robofest25-micromouse/graphs/contributors)
 
 </div>
