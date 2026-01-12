@@ -2,7 +2,7 @@
 
 > **Autonomous maze-solving robot for SLIIT ROBOFEST 2025 (University Category)**
 
-A fully autonomous micromouse robot capable of exploring, mapping, and solving a 16×16 maze using optimal pathfinding algorithms. This project combines embedded systems programming, sensor fusion, and advanced navigation algorithms.
+A fully autonomous micromouse robot capable of exploring, mapping, and solving a 16×16 maze using optimal pathfinding algorithms. This project combines embedded systems programming, sensor fusion,[...]
 
 ---
 
@@ -25,7 +25,7 @@ A fully autonomous micromouse robot capable of exploring, mapping, and solving a
 
 ## 🎯 Overview
 
-This micromouse robot is designed to compete in the **SLIIT ROBOFEST 2025 University Category**. The robot autonomously navigates through a 16×16 cell maze (each cell 16cm × 16cm), discovers walls, and finds the optimal path to the center.
+This micromouse robot is designed to compete in the **SLIIT ROBOFEST 2025 University Category**. The robot autonomously navigates through a 16×16 cell maze (each cell 16cm × 16cm), discovers wal[...]
 
 ### Project Goals
 - ✅ Autonomous maze exploration and mapping
@@ -361,7 +361,13 @@ Based on **SLIIT ROBOFEST 2025 University Category**:
 
 ## 👥 Contributors
 
-![Team Image](images/team_image_2.jpeg)
+<div align="center">
+
+![Bot Image](images/bot.jpeg)
+
+</div>
+
+![Team Image](images/group_photo.jpeg)
 
 **Copyright Holder:** FERDINANDO K. P. S. S. M. D.S.S.
 
