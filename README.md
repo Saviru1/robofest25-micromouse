@@ -363,11 +363,18 @@ Based on **SLIIT ROBOFEST 2025 University Category**:
 
 <div align="center">
 
-![Bot Image](images/bot.jpeg)
+<div align="center">
+  <img src="images/group_photo.jpeg" width="600" alt="Team Photo">
+</div>
+
 
 </div>
 
-![Team Image](images/group_photo.jpeg)
+## BOT
+<div align="center">
+  <img src="images/bot.jpeg" width="600" alt="Micromouse Robot">
+</div>
+
 
 **Copyright Holder:** FERDINANDO K. P. S. S. M. D.S.S.
 
@@ -438,3 +445,8 @@ For questions or collaboration:
 [![Contributors](https://img.shields.io/badge/Contributors-3-brightgreen.svg)](https://github.com/Saviru1/robofest25-micromouse/graphs/contributors)
 
 </div>
+``` 
+
+Next steps
+- If you want the changes merged into main, tell me and I can open a pull request (or you can merge the readme_change branch).
+- If the images are missing from the repo (images/bot.jpeg or images/group_photo.jpeg), I can add them if you provide the files or want me to push them.
