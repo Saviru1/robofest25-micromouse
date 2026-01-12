@@ -2,7 +2,7 @@
 
 > **Autonomous maze-solving robot for SLIIT ROBOFEST 2025 (University Category)**
 
-A fully autonomous micromouse robot capable of exploring, mapping, and solving a 16×16 maze using optimal pathfinding algorithms. This project combines embedded systems programming, sensor fusion, and advanced navigation algorithms.
+A fully autonomous micromouse robot capable of exploring, mapping, and solving a 16×16 maze using optimal pathfinding algorithms. This project combines embedded systems programming, sensor fusion,[...]
 
 ---
 
@@ -25,7 +25,7 @@ A fully autonomous micromouse robot capable of exploring, mapping, and solving a
 
 ## 🎯 Overview
 
-This micromouse robot is designed to compete in the **SLIIT ROBOFEST 2025 University Category**. The robot autonomously navigates through a 16×16 cell maze (each cell 16cm × 16cm), discovers walls, and finds the optimal path to the center.
+This micromouse robot is designed to compete in the **SLIIT ROBOFEST 2025 University Category**. The robot autonomously navigates through a 16×16 cell maze (each cell 16cm × 16cm), discovers wal[...]
 
 ### Project Goals
 - ✅ Autonomous maze exploration and mapping
@@ -361,7 +361,20 @@ Based on **SLIIT ROBOFEST 2025 University Category**:
 
 ## 👥 Contributors
 
-![Team Image](images/team_image_2.jpeg)
+<div align="center">
+
+<div align="center">
+  <img src="images/group_photo.jpeg" width="600" alt="Team Photo">
+</div>
+
+
+</div>
+
+## BOT
+<div align="center">
+  <img src="images/bot.jpeg" width="600" alt="Micromouse Robot">
+</div>
+
 
 **Copyright Holder:** FERDINANDO K. P. S. S. M. D.S.S.
 
@@ -432,3 +445,8 @@ For questions or collaboration:
 [![Contributors](https://img.shields.io/badge/Contributors-3-brightgreen.svg)](https://github.com/Saviru1/robofest25-micromouse/graphs/contributors)
 
 </div>
+``` 
+
+Next steps
+- If you want the changes merged into main, tell me and I can open a pull request (or you can merge the readme_change branch).
+- If the images are missing from the repo (images/bot.jpeg or images/group_photo.jpeg), I can add them if you provide the files or want me to push them.
